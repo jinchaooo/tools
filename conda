@@ -1,0 +1,8 @@
+export PATH="/home/jestinepaul/anaconda3/bin:$PATH"
+conda create -n zeiss python=3.6
+conda activate zeiss
+#conda install tensorflow-gpu
+pip install tensorflow
+pip install keras
+pip install pandas matplotlib tqdm scikit-image
+conda install -c menpo opencv
