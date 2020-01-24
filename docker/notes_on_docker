@@ -1,0 +1,33 @@
+# get latest docker image with tensorflow supporting gpu
+docker pull tensorflow/tensorflow:latest-gpu-py3-jupyter
+
+# use Dockerfile to build your own image
+# otherwise just run iamge if you already have an image
+#
+# assume Dockerfile is in current directory
+# jc is my image name
+docker  build --tag jc .
+
+# create a container with name jinchao
+# bind the current host dir to /home/docker inside container
+docker run --name jinchao -u $(id -u):$(id -g) --gpus all --mount type=bind,source="$(pwd)",target=/home/docker -it jc bash
+
+# EXIT a container without stopping it: ctrl+p followed by ctrl+q
+# STOP a container: type 'exit' to exit bash inside the container
+
+# reattach to a stopped container
+docker start jinchao
+docker attach jinchao
+
+# when you execute a container using docker run IMAGE-NAME, the container is not removed when the application finishes. Actually, you can type:
+#
+# docker ps -a
+# 
+# to see the container. This is useful in many ways. For instance, you can restart the container without losing the data inside, 
+# you can commit changes, you can see the logs, you can even log and look at the files inside.
+#
+# Using “—rm” forces docker to remove the container when the main application finishes. Hence, it is not possible to do any of the stuff 
+# mentioned in the previous paragraph. However, this cleans your system of useless containers. Some tools such as docker compose automatically do this. 
+# The reason is that in order to connect containers you often name them, and you cannot create a new container with a given name if there is 
+# a stopped container with that name. Automatically removing stopped containers is kind of handy to ease their execution.
+#
