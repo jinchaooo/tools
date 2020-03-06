@@ -4,7 +4,8 @@ FROM tensorflow/tensorflow:latest-gpu-py3-jupyter
 # Install additional packages (as root user)
 RUN apt-get update && apt-get install -y \
     sudo \
-    vim 
+    vim \
+    git
 # 
 # Add a group and a user that have same group id and
 # user id as the host. This is because the host group
