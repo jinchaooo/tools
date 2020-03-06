@@ -40,4 +40,4 @@ docker attach jinchao
 # sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
 # SSL is required especially for pip
 # If you want to add more modules after python is installed, you need to recompile and reinstall it
-# To install tensorflow-gpu: pip install --ignore-installed --upgrade tensorflow-gpu==1.9
+# To install tensorflow-gpu: pip install --ignore-installed --upgrade tensorflow-gpu==1.14 (v1.9 may be deprecated)
