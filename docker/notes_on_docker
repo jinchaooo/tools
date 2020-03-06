@@ -35,3 +35,8 @@ docker attach jinchao
 # wget https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_410.48_linux
 # Then run the downloaded script to install and use cuda 10.0 (with tensorflow 1.15)
 # Pay attention not to install NVIDIA Driver, only install CUDA. Use nvcc --version to check the cuda version.
+
+# To install python3.6 from source, need to install some dependent packages first:
+# sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+# SSL is required especially for pip
+# To install tensorflow-gpu: pip install --ignore-installed --upgrade tensorflow-gpu==1.9
