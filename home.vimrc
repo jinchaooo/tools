@@ -1,6 +1,6 @@
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set tabstop=4
+set shiftwidth=4
+"set expandtab
 set hlsearch
 "colorscheme desert
 syntax on
