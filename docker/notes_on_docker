@@ -12,6 +12,12 @@ docker build --tag jc .
 # bind the current host dir to /home/docker inside container
 docker run --name jinchao -u $(id -u):$(id -g) --gpus all --mount type=bind,source="$(pwd)",target=/home/docker -it jc bash
 
+# Example: create a container with access to the SGX functions in a SGX enabled intel cpu host
+# The docker image gramine_flower_image contains gramine libos for sgx
+docker run --name sgx_node -p 8081:8081 -v $(pwd):/workspace/workdir --device /dev/sgx_enclave -it gramine_flower_image:latest
+# To link a new terminal (not attach a terminal as it will be synced with the existing one) to the created container:
+docker exec -it sgx_node /bin/bash
+
 # EXIT a container without stopping it: ctrl+p followed by ctrl+q
 # STOP a container: type 'exit' to exit bash inside the container
 
